@@ -5,8 +5,17 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.TreeMap;
 
+/**
+ * A graph.
+ * @author Paul Olsen
+ *
+ */
 public class Graph extends TreeMap<Integer, Vertex> {
 	
+	/**
+	 * Creates a <b>directed</b> graph from the file.  If the File cannot be read for any reason, an useless RuntimeException is thrown.
+	 * @param filename
+	 */
 	public Graph(String filename) {
 		super();
 		String line = null;
@@ -18,10 +27,15 @@ public class Graph extends TreeMap<Integer, Vertex> {
 			int destination = new Integer(parts[1]);
 			addEdge(source, destination);
 		}} catch(FileNotFoundException fnfe) {
-			System.out.println("Could not open file: " + filename);
+			throw new RuntimeException("Could not open file: " + filename);
 		}
 	}
 
+	/**
+	 * Adds a new edge to the graph.  You must specify the from and to ends of the edge.
+	 * @param source the from end of the directed edge.
+	 * @param destination the to end of the directed edge.
+	 */
 	public void addEdge(int source, int destination) {
 		if(! containsKey(source)) {
 			put(source, new Vertex(source));
