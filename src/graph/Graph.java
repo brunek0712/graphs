@@ -22,7 +22,7 @@ public class Graph extends TreeMap<Integer, Vertex> {
 		try { for(Scanner scan = new Scanner(new File(filename)); scan.hasNextLine(); line = scan.nextLine()) {
 			if(line == null) line = scan.nextLine();
 			if(line.startsWith("#")) continue;
-			String[] parts = line.split("\t");
+			String[] parts = line.split("\\s+");
 			int source = new Integer(parts[0]);
 			int destination = new Integer(parts[1]);
 			addEdge(source, destination);
