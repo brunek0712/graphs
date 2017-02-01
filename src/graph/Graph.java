@@ -7,7 +7,7 @@ import java.util.TreeMap;
 
 /**
  * A graph.
- * @author Paul Olsen
+ * @author not Paul Olsen
  *
  */
 public class Graph extends TreeMap<Integer, Vertex> {
