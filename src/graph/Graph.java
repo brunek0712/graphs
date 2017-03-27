@@ -13,7 +13,7 @@ import java.util.TreeMap;
 public class Graph extends TreeMap<Integer, Vertex> {
 	
 	/**
-	 * Creates a <b>directed</b> graph from the file.  If the File cannot be read for any reason, an useless RuntimeException is thrown.
+	 * Creates an undirected graph from the file.  If the File cannot be read for any reason, an useless RuntimeException is thrown.
 	 * @param filename
 	 */
 	public Graph(String filename) {
@@ -25,7 +25,13 @@ public class Graph extends TreeMap<Integer, Vertex> {
 			String[] parts = line.split("\\s+");
 			int source = new Integer(parts[0]);
 			int destination = new Integer(parts[1]);
-			addEdge(source, destination);
+			char strength = 0;
+			for(String s : parts) System.out.println(s + " !!!"); System.out.println();
+			if(parts.length == 2) {
+				strength = parts[2].charAt(0);
+			}
+			addEdge(source, destination, strength);
+			addEdge(destination, source, strength);
 		}} catch(FileNotFoundException fnfe) {
 			throw new RuntimeException("Could not open file: " + filename);
 		}
@@ -36,14 +42,14 @@ public class Graph extends TreeMap<Integer, Vertex> {
 	 * @param source the from end of the directed edge.
 	 * @param destination the to end of the directed edge.
 	 */
-	public void addEdge(int source, int destination) {
+	public void addEdge(int source, int destination, char strength) {
 		if(! containsKey(source)) {
 			put(source, new Vertex(source));
 		}
 		if(! containsKey(destination)) {
 			put(destination, new Vertex(destination));
 		}
-		Edge e = new Edge(get(source), get(destination));
+		Edge e = new Edge(get(source), get(destination), strength);
 		get(source).addOutEdge(e);
 		get(destination).addInEdge(e);
 	}

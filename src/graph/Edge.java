@@ -8,6 +8,7 @@ package graph;
 public class Edge {
 	private Vertex source;
 	private Vertex destination;
+	private char strength; /* Either S (strong), W (weak), or 0 (no label)*/
 	
 	/**
 	 * Creates a directed edge with a vertex at each end.
@@ -17,6 +18,18 @@ public class Edge {
 	public Edge(Vertex in, Vertex out) {
 		source = in;
 		destination = out;
+	}
+	
+	/**
+	 * Creates a directed edge with a vertex at each end.
+	 * @param in the edge is from this vertex
+	 * @param out the edge goes to this vertex
+	 * @param strength S or W for strong or weak respectively.
+	 */
+	public Edge(Vertex in, Vertex out, char strength) {
+		source = in;
+		destination = out;
+		this.strength = strength;
 	}
 
 	public int hashCode() {
@@ -37,5 +50,13 @@ public class Edge {
 	 */
 	public Vertex destination() {
 		return destination;
+	}
+	
+	/**
+	 * Returns the strength of the edge.
+	 * @return the strength of the edge.
+	 */
+	public char strength() {
+		return strength;
 	}
 }

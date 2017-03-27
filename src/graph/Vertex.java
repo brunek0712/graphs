@@ -16,10 +16,16 @@ public class Vertex implements Comparable<Vertex> {
 	private LinkedList<Edge> outEdges;
 	private LinkedList<Edge> inEdges;
 	
+	/**
+	 * So that a vertex can be used as a key in a HashMap.
+	 */
 	public int hashCode() {
 		return id;
 	}
 	
+	/**
+	 * So vertices can be compared.
+	 */
 	public int compareTo(Vertex other) {
 		return Integer.compare(id, other.id);
 	}
@@ -76,6 +82,11 @@ public class Vertex implements Comparable<Vertex> {
 	
 	/**
 	 * Returns the outgoing edges of the vertex.
+	 * Use the method like this:
+	 * for(Edge e : v.outEdges) //v is a vertex.
+	 * {
+	 * 		System.out.println(e.desitination())
+	 * }
 	 * @return the outgoing edges of the vertex.
 	 */
 	public Iterable<Edge> outEdges() {
@@ -84,6 +95,7 @@ public class Vertex implements Comparable<Vertex> {
 	
 	/**
 	 * Returns the in edges of the vertex.
+	 * See outEdges.
 	 * @return the in edges of the vertex.
 	 */
 	public Iterable<Edge> inEdges() {
