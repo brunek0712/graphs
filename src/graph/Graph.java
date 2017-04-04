@@ -26,7 +26,6 @@ public class Graph extends TreeMap<Integer, Vertex> {
 			int source = new Integer(parts[0]);
 			int destination = new Integer(parts[1]);
 			char strength = 0;
-			for(String s : parts) System.out.println(s + " !!!"); System.out.println();
 			if(parts.length == 2) {
 				strength = parts[2].charAt(0);
 			}
