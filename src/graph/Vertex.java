@@ -23,6 +23,14 @@ public class Vertex implements Comparable<Vertex> {
 		return id;
 	}
 	
+	public String toString() {
+		String neighbors = "";
+		for(Edge e : outEdges()) {
+			neighbors += ", " + e.destination().id;
+		}
+		return id + "[" + neighbors + "]";
+	}
+	
 	/**
 	 * So vertices can be compared.
 	 */

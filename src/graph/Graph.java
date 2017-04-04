@@ -19,19 +19,21 @@ public class Graph extends TreeMap<Integer, Vertex> {
 	public Graph(String filename) {
 		super();
 		String line = null;
-		try { for(Scanner scan = new Scanner(new File(filename)); scan.hasNextLine(); line = scan.nextLine()) {
+		try { for(Scanner scan = new Scanner(new File(filename)); scan.hasNextLine() || line != null; line = scan.hasNextLine() ? scan.nextLine() : null) {
 			if(line == null) line = scan.nextLine();
+			System.out.println(line);
 			if(line.startsWith("#")) continue;
 			String[] parts = line.split("\\s+");
 			int source = new Integer(parts[0]);
 			int destination = new Integer(parts[1]);
 			char strength = 0;
-			if(parts.length == 2) {
+			if(parts.length == 3) {
 				strength = parts[2].charAt(0);
 			}
 			addEdge(source, destination, strength);
 			addEdge(destination, source, strength);
-		}} catch(FileNotFoundException fnfe) {
+		}
+		} catch(FileNotFoundException fnfe) {
 			throw new RuntimeException("Could not open file: " + filename);
 		}
 	}
