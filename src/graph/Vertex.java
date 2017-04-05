@@ -110,7 +110,19 @@ public class Vertex implements Comparable<Vertex> {
 		return inEdges;
 	}
 	
+	/**
+	 * Returns true if two vertices have the same id.
+	 * Thus two different (because they have different edges) vertices may be considered equal (because they have the same id).
+	 */
 	public boolean equals(Object o) {
 		return id == ((Vertex)o).id;
+	}
+	
+	/**
+	 * returns the id of the vertex.
+	 * @return the id of the vertex.
+	 */
+	public int id() {
+		return id;
 	}
 }
