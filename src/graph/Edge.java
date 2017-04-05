@@ -32,6 +32,9 @@ public class Edge {
 		this.strength = strength;
 	}
 
+	/** This method allows edges to be stored in hashsets or used as
+	 * indices in hashmaps.
+	 */
 	public int hashCode() {
 		return source.hashCode() ^ destination.hashCode();
 	}
