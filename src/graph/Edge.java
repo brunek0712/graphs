@@ -59,4 +59,9 @@ public class Edge {
 	public char strength() {
 		return strength;
 	}
+	
+	public boolean equals(Object o) {
+		return source.equals(((Edge)o).source) &&
+				destination.equals(((Edge)o).destination);
+	}
 }

@@ -109,4 +109,8 @@ public class Vertex implements Comparable<Vertex> {
 	public Iterable<Edge> inEdges() {
 		return inEdges;
 	}
+	
+	public boolean equals(Object o) {
+		return id == ((Vertex)o).id;
+	}
 }
