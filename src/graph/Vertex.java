@@ -91,7 +91,7 @@ public class Vertex implements Comparable<Vertex> {
 	/**
 	 * Returns the outgoing edges of the vertex.
 	 * Use the method like this:
-	 * for(Edge e : v.outEdges) //v is a vertex.
+	 * for(Edge e : v.outEdges()) //v is a vertex.
 	 * {
 	 * 		System.out.println(e.desitination())
 	 * }
