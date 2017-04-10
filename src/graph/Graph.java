@@ -21,7 +21,6 @@ public class Graph extends TreeMap<Integer, Vertex> {
 		String line = null;
 		try { for(Scanner scan = new Scanner(new File(filename)); scan.hasNextLine() || line != null; line = scan.hasNextLine() ? scan.nextLine() : null) {
 			if(line == null) line = scan.nextLine();
-			System.out.println(line);
 			if(line.startsWith("#")) continue;
 			String[] parts = line.split("\\s+");
 			int source = new Integer(parts[0]);
